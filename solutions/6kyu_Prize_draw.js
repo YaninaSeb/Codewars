@@ -20,45 +20,28 @@
 function rank(st, we, n) {
     if (st.length == 0) return 'No participants'
 
-    let objNames = {};
     let arrNames = st.split(',');
-
     if (n > arrNames.length) return 'Not enough participants';
 
-    arrNames.forEach((name, index) => {
-      let som = getSom(name);
-      
-      let weight = we[index];
-      let winNum = som * weight;
-      objNames[`${name}`] = winNum;
+    let arrNamesWithSom = arrNames.map((name, index) => {
+        let arrLetterName = name.toUpperCase().split('');
+        let som = name.length + arrLetterName.reduce((acc,letter) => {
+            return acc += letter.charCodeAt() - 64;
+        }, 0);
+        let weight = we[index];
+        let winNum = som * weight;
+        return [name, winNum];
     });
 
-    let sortObjName = sortObj(objNames);
-    let searchName = sortObjName[n-1][0];
-
-    return searchName;
-}
-  
-function getSom(item) {
-    let arrItem = item.toUpperCase().split('');
-    let res = item.length;
-  
-    arrItem.forEach((letter) => {
-      rank = letter.charCodeAt() - 64;
-      res += rank;
-    });
-  
-    return res;
-}
-
-function sortObj(obj) {
-    let arr = Object.entries(obj);
-    let sortArr = arr.sort((a, b) => {
+    arrNamesWithSom.sort((a, b) => {
         if (a[1] != b[1]) {
             return b[1] - a[1];
         } else {
-            return b[0] < a[0] ? 1 : -1;
+             return b[0] < a[0] ? 1 : -1;
         }
     });
-    return sortArr;
+
+    let searchName = arrNamesWithSom[n-1][0];
+
+    return searchName;
 }
