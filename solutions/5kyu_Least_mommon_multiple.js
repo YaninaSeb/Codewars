@@ -5,15 +5,12 @@
 var lcm = function () {
     let arrNums = [...arguments];
 
-    if (arrNums.length == 0) return 0;
-    if (arrNums.length == 1) return arrNums[0];
-
-    let maxNum = arrNums.reduce((acc, num) => acc *= num, 1);
-
-    for (let i = 1; i <= maxNum; i++) {
-        let res = arrNums.every((item) => i % item == 0);
-        if (res) {
-            return i;
-        }
+    if (arrNums.length == 0 || arrNums.includes(0)) return 0;
+  
+    let minNum = Math.max(...arrNums);
+  
+    for (let i = 1; true; i++) {
+      let searchNum = minNum * i;
+      if (arrNums.every((item) => searchNum % item == 0)) return searchNum;
     }
 };
