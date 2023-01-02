@@ -46,5 +46,4 @@ function checkNum(num) {
     }
 }
 
-
-console.log(powerSumDigTerm(1))
+// console.log(powerSumDigTerm(1))
