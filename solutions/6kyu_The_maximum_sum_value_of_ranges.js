@@ -41,3 +41,7 @@ function maxSum(arr,range){
     
     return Math.max(...arrSum);
 }
+
+// function maxSum(arr,range){
+//     return Math.max(...range.map((elem) => arr.slice(elem[0], elem[1] + 1).reduce((acc, curr) => acc += curr, 0)))
+// }
