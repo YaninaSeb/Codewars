@@ -77,5 +77,3 @@ function door(events) {
 
     return res;
 }
-
-console.log(door('P......P......'), '12345554321000')
