@@ -41,18 +41,19 @@
 function removeNb (n) {
     let arrNum = new Array(n).fill(1).map((elem, i) => elem * (i+1));
     let sumAllNum = arrNum.reduce((acc, curr) => acc + curr, 0);
+    let middleNum = parseInt(Math.sqrt(sumAllNum));
     let res = [];
 
-    for (let num1 = 1; num1 <= n; num1++) {
-        for (let num2 = num1 + 1; num2 <= n; num2++) {
-            if ((sumAllNum - num1 - num2) === (num1 * num2)) {
-                res.push([num1, num2]);
-                res.push([num2, num1]);
-            }
-        }
-    }
-    return res;
+    // for (let num1 = 1; num1 < middleNum; num1++) {
+    //     for (let num2 = middleNum; num2 <= n; num2++) {
+    //         if ((sumAllNum - num1 - num2) === (num1 * num2)) {
+    //             res.push([num1, num2]);
+    //             res.push([num2, num1]);
+    //         }
+    //     }
+    // }
+    return sumAllNum;
 }
 
 
-console.log(removeNb(100))
+console.log(removeNb(1000003))
