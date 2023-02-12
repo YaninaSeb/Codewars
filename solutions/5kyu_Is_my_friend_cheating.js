@@ -38,22 +38,31 @@
 // See examples of returns for each language in "RUN SAMPLE TESTS"
 
 
+// function removeNb (n) {
+//     let arrNum = new Array(n).fill(1).map((elem, i) => elem * (i+1));
+//     let sumAllNum = arrNum.reduce((acc, curr) => acc + curr, 0);
+//     let middleNum = parseInt(Math.sqrt(sumAllNum));
+//     let res = [];
+
+//     for (let num1 = 1; num1 < middleNum; num1++) {
+//         for (let num2 = middleNum; num2 <= n; num2++) {
+//             if ((sumAllNum - num1 - num2) === (num1 * num2)) {
+//                 res.push([num1, num2]);
+//                 res.push([num2, num1]);
+//             }
+//         }
+//     }
+//     return res;
+// }
+
 function removeNb (n) {
-    let arrNum = new Array(n).fill(1).map((elem, i) => elem * (i+1));
-    let sumAllNum = arrNum.reduce((acc, curr) => acc + curr, 0);
-    let middleNum = parseInt(Math.sqrt(sumAllNum));
+    let sum = ((1 + n) * n) / 2;
     let res = [];
 
-    // for (let num1 = 1; num1 < middleNum; num1++) {
-    //     for (let num2 = middleNum; num2 <= n; num2++) {
-    //         if ((sumAllNum - num1 - num2) === (num1 * num2)) {
-    //             res.push([num1, num2]);
-    //             res.push([num2, num1]);
-    //         }
-    //     }
-    // }
-    return sumAllNum;
+    for (let x = 1; x <= n; x++) {
+        let y = (sum - x) / (x + 1);
+        if (parseInt(y) === y && y <= n) res.push([x, y]);
+    }
+
+    return res;
 }
-
-
-console.log(removeNb(1000003))
