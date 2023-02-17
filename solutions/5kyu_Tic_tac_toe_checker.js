@@ -46,11 +46,3 @@ function isSolved(board) {
 
   return 0;
 }
-
-console.log(
-  isSolved(
-  [[0,0,1],
-   [0,2,2],
-   [1,1,0]]
-  )
-)

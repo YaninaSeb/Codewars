@@ -18,23 +18,33 @@
 
 //НЕ ПРОХОДИТ ВСЕ ТЕСТЫ
 
+function isEven(el){
+  return el % 2 === 0;
+}
 
-let multiFilter = function(){
-  
+function isGTten(el){
+  return el > 10;
+}
+
+let multiFilter = function(){  
     if (arguments.length == 0) {
       return function(){
-        return []
+        return this;
       };
     }
     
     if (arguments.length == 1) {
-      return arguments[0]
+      return arguments[0];
     }
     
-     if (arguments.length == 2) {
-       let a = arguments[0]
-       let b = arguments[1]
-       return function(a, b) {}
-    }
-    
+    if (arguments.length == 2) {
+      let a = arguments[0];
+      let b = arguments[1];
+
+    };
+
   };
+
+console.log([1,2,3,4,10,11,12,20,21,22].filter(multiFilter(isEven, isGTten)))
+
+//console.log([1,2,3,4,10,11,12,20,21,22].filter(multiFilter(isGTten)))
