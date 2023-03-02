@@ -10,14 +10,18 @@
 // If provided, the function returns a string.
 // If NOT provided, it must returns a function allowing to continue the sentence.
 
+let str = '';
+
 function iam(input) {
-    if (input !== undefined) return `I am ${input}`;
-
-    return (input_second) => {
-        if (input_second !== undefined) return `I am very ${input_second}`;
-
-        return (input_third) => {
-            if (input_third !== undefined) return `I am very very ${input_third}`;
-        }
+    if (input !== undefined) {
+        let res = `I am ${str}${input}`;
+        str = '';
+        return res;
+    } else {
+        str += 'very ';
+        return iam
     }
 }
+
+console.log(iam()()()()('happy and ') + iam()()()()()()()('big and') + iam('tall'))
+
