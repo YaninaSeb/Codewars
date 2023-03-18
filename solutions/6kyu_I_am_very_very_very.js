@@ -22,6 +22,3 @@ function iam(input) {
         return iam
     }
 }
-
-console.log(iam()()()()('happy and ') + iam()()()()()()()('big and') + iam('tall'))
-
