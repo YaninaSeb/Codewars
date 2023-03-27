@@ -29,6 +29,7 @@
 // 0, 1,2
 // 0.342q0832, 1.2324
 
+
 function isValidCoordinates(coordinates) {
     let firstPart = "[-]?([0-8]?[0-9]([.][0-9]*)?|90)";
     let secondPart = "[-]?(([0-9]?[0-9]|1[0-7][0-9])([.][0-9]*)?|180)";
