@@ -328,3 +328,42 @@ function makeCounter() {
   
     return counter;  
 }
+
+
+
+// Вывод каждую секунду
+
+// Напишите функцию printNumbers(from, to), которая выводит число каждую секунду, начиная от from и заканчивая to.
+
+// Сделайте два варианта решения.
+
+// Используя setInterval.
+// Используя рекурсивный setTimeout.
+
+
+function printNumbers1(from, to) {
+    let value = from;
+    let id = setInterval(() => {
+        console.log(value);
+
+        if (value === to) {
+            clearInterval(id);
+        } else {
+            value++;
+        }
+    }, 1000)
+}
+
+
+function printNumbers2(from, to) {
+    let value = from;
+    setTimeout(function fun() {
+        console.log(value);
+
+        if (value !== to) {
+            value++;
+            setTimeout(fun, 1000);
+        }
+    }, 1000)
+}
+
