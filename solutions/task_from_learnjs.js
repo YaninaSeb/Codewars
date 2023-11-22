@@ -367,3 +367,25 @@ function printNumbers2(from, to) {
     }, 1000)
 }
 
+
+
+////
+function getUserFriends(userJson, id){
+    let obj = JSON.parse(userJson);
+    return obj.users.filter((user) => user.id === id) || [];
+  }
+
+const userJson = JSON.stringify({
+    users: [
+      { id: 1, name: 'John', age: 20 },
+      { id: 2, name: 'Mary', age: 21 },
+    ],
+    friends: [
+      [1, 2],
+    ],
+  });
+  
+  console.log(getUserFriends(userJson, 3)); // [{ id: 2, name: 'Mary', age: 21 }]
+//   getUserFriends(userJson, 2); // [{ id: 1, name: 'John', age: 20 }]
+//   getUserFriends(userJson, 3); // []
+
